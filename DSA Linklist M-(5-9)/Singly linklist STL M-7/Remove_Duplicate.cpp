@@ -1,0 +1,107 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int value;
+    Node* next;
+
+
+    Node(int val){
+
+        this->value=val;
+        this->next=NULL;
+    }
+};
+
+void insert_at_tail(Node* &head,Node* &tail,int value){
+     
+    Node* newnode= new Node(value);
+    if (head == NULL) {
+        head = newnode;
+        tail=newnode;
+        return;
+    }
+    tail->next=newnode;
+    tail=newnode;
+}
+
+void print_linklist(Node* head){
+
+    Node* tmp=head;
+    while (tmp!=NULL)
+    {
+        cout<<tmp->value<<" ";
+        tmp=tmp->next;
+
+    }
+    
+}
+
+void delete_at_any_position(Node* &head,int postion){
+
+    Node* tmp=head;
+    for(int i=1;i<postion;i++){
+        tmp=tmp->next;
+    }
+    Node* del_value_store=tmp->next;
+      
+    
+    tmp->next=tmp->next->next;
+    delete del_value_store;
+    
+
+
+
+}
+
+
+
+
+
+
+int main(){
+
+    Node* head= NULL;
+    Node* tail=NULL;
+
+    while (1)
+    {
+        int x;
+        cin>>x;
+        if(x==-1){
+            break;
+        }
+        insert_at_tail(head,tail,x);
+    }
+
+     Node *i = head;
+    while (i != NULL)
+    {
+        Node *j = i;
+        while (j->next != NULL)
+        {
+            if (i->value == j->next->value)
+            {
+            
+                Node *deleteNode = j->next;
+                j->next = j->next->next;
+                delete deleteNode;
+            }
+            else
+            {
+                j = j->next;
+            }
+        }
+        i = i->next;
+    }
+
+    print_linklist(head);
+
+    
+    
+
+
+
+    return 0;
+}
