@@ -6,7 +6,7 @@ vector<int> adency_l[10005];
 // take the vis to check is it called or not
 bool vis[10005];
 
-void bfs(int src)
+void bfs(int src)//we use bfs to traversal the graph and it work like level oreder
 {
 
     queue<int> q;
