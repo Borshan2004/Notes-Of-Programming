@@ -31,6 +31,8 @@ void dfs(int src_i,int src_j){
 
 
 // for every src node there is at least 4 childs
+
+//we have to use 4 as a end of the loop and it is fixed
     for(int i=0;i<4;i++){
 // to traversal the grid we have to do the sum to go the posion of the 4 childs
         int c_src_i=src_i+movement[i].first;
